@@ -1,4 +1,4 @@
-import streamlit as st
+strimport streamlit as st
 from langchain.document_loaders import PyPDFLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
@@ -15,15 +15,15 @@ st.title(" PDF Chatbot with RAG (Streamlit + LangChain)")
 # Load and embed PDF - Cache so it runs only once
 @st.cache_resource
 def load_vector_store():
-    # 1️⃣ Load the PDF
+    # 1 Load the PDF
     loader = PyPDFLoader("index_card.pdf")
     docs = loader.load()
 
-    # 2️⃣ Split into chunks
+    # 2 Split into chunks
     text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
     chunks = text_splitter.split_documents(docs)
 
-    # 3️⃣ Create embeddings and vector store
+    # 3 Create embeddings and vector store
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
     vector_store = Chroma.from_documents(chunks, embeddings)
 
