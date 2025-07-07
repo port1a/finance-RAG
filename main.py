@@ -25,7 +25,7 @@ def load_vector_store():
 
     # 3 Create embeddings and vector store
     embeddings = OpenAIEmbeddings(openai_api_key=openai_api_key)
-    vector_store = Chroma.from_documents(chunks, embeddings)
+    vector_store = Chroma.from_documents(chunks, embeddings, persist_directory="./chroma_db")
 
     return vector_store
 
