@@ -4,3 +4,7 @@ openai
 chromadb
 langchain-community
 pypdf
+protobuf<4
+opentelemetry-api<2
+opentelemetry-sdk<2
+opentelemetry-exporter-otlp<2
